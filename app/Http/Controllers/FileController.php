@@ -9,8 +9,7 @@ class FileController extends Controller
 {
     public function index()
     {
-        // Public disk me uploads folder ke saare files get karein
-        $files = Storage::disk('public')->files('uploads');
+        $files = array_reverse(Storage::disk('public')->files('uploads'));
         return view('welcome', compact('files'));
     }
 
